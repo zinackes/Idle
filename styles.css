@@ -1,27 +1,16 @@
 body{
-    margin: 0;
-    padding: 0;
-
 }
 
-main{
-    display: flex;
+header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.upgrade1{
-    padding: 15px;
-    width: 250px;
-    height: 30px;
-    background-color: black;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: white;
 }
 
-ul{
-    list-style: none;
+.upbox{
+    padding: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: lightblue;
 }
