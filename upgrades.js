@@ -3,7 +3,6 @@ function Upgrade1(){
         Up1lvl++;
         money -= Up1Cost;
         Up1Cost*= 1.5;
-        Update();
     }
 }
 
@@ -13,7 +12,6 @@ function Upgrade2(){
         money -= Up2Cost;
         Up2Cost*=2.2;
         Up2 +=5;
-        Update();
     }
 }
 
