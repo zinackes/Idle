@@ -1,4 +1,3 @@
-
 const money_text = document.getElementById("money_text");
 const money_per_sec_text = document.getElementById("money_per_sec_text");
 const cost_1_text = document.getElementById("cost_1_text");
@@ -35,6 +34,5 @@ function Update(){
     
 }
 
-
-Update();
+setInterval(Update, 1);
 setInterval(Money_Generator, Tick);
