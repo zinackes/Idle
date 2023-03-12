@@ -4,26 +4,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="button_animation.css">
+    <link rel="stylesheet" href="upgrades_styles.css">
+    <link rel="stylesheet" href="planet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Space Idle</title>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <!-- Faire arbre de developpement avec truc un peu en rond
+    et des lignes qui relie
+Faire un systeme de niveau global qui se reset jamais (trouver moyen
+d'xp) :: gain xp: tt les 10, 25 etc niveaux de chaque amelio : donner xp,
+xp gagné different en fonction de l'amelioration exemple:
+wood niv 10= 1xp, stone niv 10=2. 
+faire acheteur auto
+Systeme de prestige ?
+
+    Upgrade: sable, calcaire, fer, charbon, cuivre, or, zinc, argent, 
+silice titane, plomb quartz, aluminium
+
+
+Faire effet planete chaude et alentour aussi quand hover-->
 
     <header>
-        <h1>Money: <span id="money_text"></span></h1>
+        <div class="planet">
+        </div>
+        <div class="money">
+            <img src="./images/money.png" alt="">
+            <h1> <span id="money_text"></span></h1>
+        </div>
+        <div class="xp_info">
+            <div class="xp-bar">
+                <div class="xp" id="xp-bar"></div>
+            </div>
+            <p class="xp_lvl">Xp level: <span id="xp_lvl_text"></span></p>
+            <p class="xp_avancement"><span id="xp"></span>/ <span id="xp_required"></span></p>
+        </div>
         <p>Money per second: <span id="money_per_sec_text"></span></p>
-        <p>Tick: <span id="tick_text"></span> second</p>
-        <button onclick="TickUpgrade()" style="padding: 10px;"></button>
     </header>
     
     <main>
-        <div class="upbox">
-            <img src="./images/grass.png" alt="Grass Image" class="box_img">
+        
+        <button onclick="Reset()" style="padding: 10px; position: absolute;">Reset</button>
+        <button onclick="plusxp()" style="padding: 10px; position: absolute; left: 100;">++Xp</button>
+        <button onclick="Argent()" style="padding: 10px; position: absolute; left: 200;">++Argent</button>
+        <button onclick="SetbuyMode(0)" style="padding: 10px; position: absolute; left: 600;" id="Upx">Change buy mode</button>
+        <button onclick="SetbuyMode(0)" style="padding: 10px; position: absolute; left: 250;" id="Upx">x1</button>
+        <button onclick="SetbuyMode(1)" style="padding: 10px; position: absolute; left: 300;" id="Upx">x10</button>
+        <button onclick="SetbuyMode(2)" style="padding: 10px; position: absolute; left: 400;" id="Upx">x100</button>
+        <button onclick="SetbuyMode(3)" style="padding: 10px; position: absolute; left: 500;" id="Upx">Max</button>
+        <div class="upbox upbox_wood max"  id="upbox1" onclick="buyUpgrades(0, 0)" id="upbox_1">
             <div class="info">
-                <h1>Grass</h1>
+                <h1>Wood</h1>
                 <p class="lvl">Lv. <span id="lvl_1_text"></span></p>
                 <div class="price">
                     <img src="./images/money.png" alt="">
@@ -33,27 +67,63 @@
                 <div class="power">
                     <img src="./images/rise.png" alt="">
                     <p>Boost:</p>
-                    <p>+1</p>
+                    <p><span id="power_1_text"></span></p>
                 </div>
                 
             </div>
-            <div class="button">
-                <button onclick="Upgrade1()">Buy <span>x1</span></button>
+        </div>
+        <div class="upbox upbox_stone" id="upbox2" onclick="buyUpgrades(0, 0)">
+            <div class="info">
+                <h1>Stone</h1>
+                <p class="lvl">Lv. <span id="lvl_2_text"></span></p>
+                <div class="price">
+                    <img src="./images/money.png" alt="">
+                    <p>Price: </p>
+                    <p class="cost"><span id="cost_2_text"> </span></p>
+                </div>
+                <div class="power">
+                    <img src="./images/rise.png" alt="">
+                    <p>Boost:</p>
+                    <p><span id="power_2_text"></span></p>
+                </div>
+                
             </div>
         </div>
-        <div class="upbox">
-            <h3>Stone</h3>
-            <p>Level: <span id="lvl_2_text"></span></p>
-            <p>Price: <span id="cost_2_text"></span></p>
-            
-            <button onclick="Upgrade2()" style="padding: 10px;">
-                <p></p>
-            </button>
+        <div class="upbox upbox_sand" id="upbox3" onclick="Upgrades(2)">
+            <div class="info">
+                <h1>Sand</h1>
+                <p class="lvl">Lv. <span id="lvl_3_text"></span></p>
+                <div class="price">
+                    <img src="./images/money.png" alt="">
+                    <p>Price: </p>
+                    <p class="cost"><span id="cost_3_text"> </span></p>
+                </div>
+                <div class="power">
+                    <img src="./images/rise.png" alt="">
+                    <p>Boost:</p>
+                    <p><span id="power_3_text"></span></p>
+                </div>
+                
+            </div>
         </div>
     </main>
 
 </body>
 <script src="main.js" type="text/javascript"></script>
 <script src="upgrades.js" type="text/javascript"></script>
-<script src="button_animation.js"></script>
+<script src="save.js" type="text/javascript"></script>
+<script src="notation.js" type="text/javascript"></script>
+<script src="lvl.js" type="text/javascript"></script>
+
+
+<!--All the section below is from https://github.com/VincentGarreau/particles.js
+with slight modifications-->
+<script src="./particles/particles.js" type="text/javascript"></script>
+<script src="particle.js">
+</script>
+<script>
+particlesJS.load('particles-js', 'particles/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+  </script>
 </html>
