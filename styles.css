@@ -1,5 +1,17 @@
 body{
     font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+.planet{
+    position: absolute;
+    left: 30;
+    top: 40;
+    transform: rotate(-10deg);
+    background-image: url("./images/vue-galaxy.png");
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
 }
 
 header{
@@ -9,36 +21,68 @@ header{
     display: flex;
 }
 main{
-    padding: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+    width: 100%;
+    height: 100vh;
 }
-.upbox{
-    padding-left: 200px;
-    position: relative;
-    padding-right: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.money{
+    margin-top: 20px;
+    background-color: black;
+    opacity: 0.7;
+    padding: 5px 10px;
+    color: rgb(54, 174, 74);
+    border-radius: 9px;
     display: flex;
-    background-color: rgb(167, 90, 81);
+    justify-content: center;
     align-items: center;
-    max-width: 400px;
-    border-top-right-radius: 70px;
-    border-bottom-left-radius: 70px;
-    background-image: url("./images/dirt-bg-darker.png")
-    , url("./images/dirt-bg.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-position-x: 280px, -350px;
-    background-position-y: top, -460px;
-    background-size: cover;
 }
+.money img{
+    width: 30px;
+}
+.money h1{
+    margin: 0;
+    font-size: 20px;
+    margin-left: 9px;
+}
+.xp_info{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.xp-bar{
+    height: 10px;
+    width: 100%;
+    background-color: #1a1a1a;
+}
+.xp_lvl{
+    float: left;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: aliceblue;
+    letter-spacing: 0.5;
+}
+.xp_avancement{
+    float: right;
+    margin: 0;
+    margin-right: 15px;
+    margin-top: 6px;
+    color: aliceblue;
+    letter-spacing: 0.5;
+}
+
+.xp{
+    width: 88%;
+    height: 10px;
+    background: linear-gradient( 99.9deg, #0F0C29 21.2%, rgba(50,4,89,1) 84.8% );;
+    transition: all .3s ease-in-out;
+}
+        
 
 .box_img{
     position: absolute;
-    top: -55;
-    left: 70;
+    left: 40;
+    width: 120px;
 }
 .info{
     width: 100%;
@@ -55,7 +99,7 @@ main{
 .lvl{
     margin: 0;
     color: #50C878;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 .price, .power{
     display: flex;
@@ -72,7 +116,7 @@ main{
     margin-right: 1px;
 }
 .cost{
-    margin-left: 7px;
+    margin-left: 10px;
 }
 
 .power img{
@@ -85,7 +129,7 @@ main{
 }
 
 .button{
-    margin-left: auto;
+    display: none;
 }
 
 .button button{
@@ -110,6 +154,20 @@ main{
     box-shadow: 0 4px 0px #018036;
     transition: all .1s;
     transform: scale(0.9);
+}
+
+
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #262648;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #494983;
+    border-radius: 10px;
 }
 
 
