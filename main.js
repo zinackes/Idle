@@ -87,6 +87,14 @@ function Update(){
     }
     
 }
+function buyModeHide(){
+  for (let i = 0; i < 4; i++){
+    const upboxbuymode = document.getElementById(`upboxbuymode${i+1}`);
+    upboxbuymode.classList.toggle("hide");
+    console.log("test");
+  }
+
+}
 
 
 setInterval(Update, 500); 
