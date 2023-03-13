@@ -156,6 +156,61 @@ main{
     transform: scale(0.9);
 }
 
+.buymodelist{
+    position: relative;
+    right: 50;
+    top: 0;
+    width: 500px;
+    height: 500px;
+    float: right;
+}
+
+.upboxbuymode{
+    position: absolute;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #1c1c37;
+    border-radius: 50%;
+    box-shadow: -3px -3px 25px 1px #B42033, 3px 3px 25px 1px #B42033,
+    inset -3px -3px 25px 1px #B42033;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buymode1{
+    position: absolute;
+    top: 60;
+    left: 140;
+}
+
+.buymode2{
+    position: absolute;
+    top: 90;
+    left: 380;
+}
+.buymode3{
+    position: absolute;
+    top: 410;
+    left: 180;
+}
+.buymode4{
+    position: absolute;
+    top: 410;
+    left: 400;
+}
+
+.hide{
+    display: none;
+}
+
 
 
 ::-webkit-scrollbar{
