@@ -69,7 +69,7 @@ function formatMoney(value) {
   for (let i = moneyNotations.length - 1; i >= 0; i--) {
       const divider = Math.pow(10, (i * 3));
       if (value >= divider) {
-          return (value / divider).toFixed(2) + moneyNotations[i];
+          return (value / divider).toFixed(0) + moneyNotations[i];
       }
   }
   return value.toString();
