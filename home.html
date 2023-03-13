@@ -25,6 +25,10 @@ Systeme de prestige ?
     Upgrade: sable, calcaire, fer, charbon, cuivre, or, zinc, argent, 
 silice titane, plomb quartz, aluminium
 
+pour design buyMode:
+faire une sorte de planete avec texte dedans qui indique changement de
+mode et le mode puis quand on clique dessus alors 4 planetes apparaissent autour
+avec chacun 1 mode different
 
 Faire effet planete chaude et alentour aussi quand hover-->
 
@@ -50,12 +54,26 @@ Faire effet planete chaude et alentour aussi quand hover-->
         <button onclick="Reset()" style="padding: 10px; position: absolute;">Reset</button>
         <button onclick="plusxp()" style="padding: 10px; position: absolute; left: 100;">++Xp</button>
         <button onclick="Argent()" style="padding: 10px; position: absolute; left: 200;">++Argent</button>
-        <button onclick="SetbuyMode(0)" style="padding: 10px; position: absolute; left: 600;" id="Upx">Change buy mode</button>
         <button onclick="SetbuyMode(0)" style="padding: 10px; position: absolute; left: 250;" id="Upx">x1</button>
         <button onclick="SetbuyMode(1)" style="padding: 10px; position: absolute; left: 300;" id="Upx">x10</button>
         <button onclick="SetbuyMode(2)" style="padding: 10px; position: absolute; left: 400;" id="Upx">x100</button>
         <button onclick="SetbuyMode(3)" style="padding: 10px; position: absolute; left: 500;" id="Upx">Max</button>
-        <div class="upbox upbox_wood max"  id="upbox1" onclick="buyUpgrades(0, 0)" id="upbox_1">
+
+
+        <div class="buymodelist">
+            <div class="upboxbuymode" onclick="buyModeHide()">
+                <p>Change buy mode</p>
+            </div>
+            <div class="upboxbuymode buymode1 hide" id="upboxbuymode1">
+                caca
+            </div>
+            <div class="upboxbuymode buymode2 hide" id="upboxbuymode2"></div>
+            <div class="upboxbuymode buymode3 hide" id="upboxbuymode3"></div>
+            <div class="upboxbuymode buymode4 hide" id="upboxbuymode4"></div>
+        </div>
+
+
+        <div class="upbox upbox_wood max"  id="upbox1" onclick="buyUpgrades(0, 0)">
             <div class="info">
                 <h1>Wood</h1>
                 <p class="lvl">Lv. <span id="lvl_1_text"></span></p>
