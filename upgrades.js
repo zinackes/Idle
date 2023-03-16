@@ -63,6 +63,7 @@ function SetbuyMode(mode){
         const upbox = document.getElementById(`upbox${i+1}`);
         const cost_text = document.getElementById(`cost_${i+1}_text`);
         const power_text = document.getElementById(`power_${i+1}_text`);
+        const lvl_text = document.getElementById(`lvl_${i+1}_text`);
         index = i;
         let b = upCosts[index]; // prix de base de l'amélioration
         let r = UpCostsMulti[index]; // augmentation de prix à chaque achat
@@ -89,6 +90,7 @@ function SetbuyMode(mode){
         cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1));
         cost_text.textContent = formatMoney(cost);
         power_text.textContent = "+" + formatMoney(UpPowers[i] * n);
+        lvl_text.textContent = formatMoney(upLvls[i]) + " (+" + n + ")";
 
         if (money > cost && n != 0) {
             upbox.classList.add("available");
