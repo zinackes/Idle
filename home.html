@@ -35,10 +35,10 @@ Faire effet planete chaude et alentour aussi quand hover-->
     <header>
         <div class="planet">
         </div>
-        <div class="money">
+        <a class="money" href="../prestige.html">
             <img src="./images/money.png" alt="">
             <h1> <span id="money_text"></span></h1>
-        </div>
+        </a>
         <div class="xp_info">
             <div class="xp-bar">
                 <div class="xp" id="xp-bar"></div>
@@ -54,27 +54,19 @@ Faire effet planete chaude et alentour aussi quand hover-->
         <button onclick="Reset()" style="padding: 10px; position: absolute;">Reset</button>
         <button onclick="plusxp()" style="padding: 10px; position: absolute; left: 100;">++Xp</button>
         <button onclick="Argent()" style="padding: 10px; position: absolute; left: 200;">++Argent</button>
-        <button onclick="SetbuyMode(0)" style="padding: 10px; position: absolute; left: 250;" id="Upx">x1</button>
-        <button onclick="SetbuyMode(1)" style="padding: 10px; position: absolute; left: 300;" id="Upx">x10</button>
-        <button onclick="SetbuyMode(2)" style="padding: 10px; position: absolute; left: 400;" id="Upx">x100</button>
-        <button onclick="SetbuyMode(3)" style="padding: 10px; position: absolute; left: 500;" id="Upx">Max</button>
 
 
-        <div class="buymodelist">
-            <div class="upboxbuymode" onclick="buyModeHide()">
-                <p>Change buy mode</p>
-            </div>
-            <div class="upboxbuymode buymode1 hide" id="upboxbuymode1">
-                caca
-            </div>
-            <div class="upboxbuymode buymode2 hide" id="upboxbuymode2"></div>
-            <div class="upboxbuymode buymode3 hide" id="upboxbuymode3"></div>
-            <div class="upboxbuymode buymode4 hide" id="upboxbuymode4"></div>
-        </div>
+        <button onclick="SwitchBuyMode()" class="buymode">Buy Mode <br>
+            <span id="buymode_text"></span></button>
 
 
         <div class="upbox upbox_wood max"  id="upbox1" onclick="buyUpgrades(0, 0)">
             <div class="info">
+                <div class="milestone">
+                    <div class="milestone-bar">
+
+                    </div>
+                </div>
                 <h1>Wood</h1>
                 <p class="lvl">Lv. <span id="lvl_1_text"></span></p>
                 <div class="price">
@@ -107,7 +99,7 @@ Faire effet planete chaude et alentour aussi quand hover-->
                 
             </div>
         </div>
-        <div class="upbox upbox_sand" id="upbox3" onclick="Upgrades(2)">
+        <div class="upbox upbox_sand" id="upbox3" onclick="buyUpgrades(0, 0)">
             <div class="info">
                 <h1>Sand</h1>
                 <p class="lvl">Lv. <span id="lvl_3_text"></span></p>
@@ -120,6 +112,23 @@ Faire effet planete chaude et alentour aussi quand hover-->
                     <img src="./images/rise.png" alt="">
                     <p>Boost:</p>
                     <p><span id="power_3_text"></span></p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="upbox upbox_calcaire" id="upbox4" onclick="buyUpgrades(0, 0)">
+            <div class="info">
+                <h1>Calcaire</h1>
+                <p class="lvl">Lv. <span id="lvl_4_text"></span></p>
+                <div class="price">
+                    <img src="./images/money.png" alt="">
+                    <p>Price: </p>
+                    <p class="cost"><span id="cost_4_text"> </span></p>
+                </div>
+                <div class="power">
+                    <img src="./images/rise.png" alt="">
+                    <p>Boost:</p>
+                    <p><span id="power_4_text"></span></p>
                 </div>
                 
             </div>
