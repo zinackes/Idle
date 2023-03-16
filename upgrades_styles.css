@@ -43,8 +43,15 @@
     left: 60;
 }
 .upbox_sand{
+    top: 510;
+    left: 440;
+}
+.upbox_calcaire{
     top: 280;
     left: 730;
+}
+.upbox_calcaire h1{
+    font-size: 25px;
 }
 
 
