@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="upgrades_styles.css">
+    <link rel="stylesheet" href="economy.css">
+    <link rel="stylesheet" href="prestige.css">
+    <link rel="stylesheet" href="xp.css">
+    <link rel="stylesheet" href="_swashIn.scss">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="planet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,15 +38,96 @@ faire une sorte de planete avec texte dedans qui indique changement de
 mode et le mode puis quand on clique dessus alors 4 planetes apparaissent autour
 avec chacun 1 mode different
 
-Faire effet planete chaude et alentour aussi quand hover-->
+Coutour vert quand boost selectionné-->
+
+        <div class="announce_msg">
+            <p class="" id="UpNameAnnounceParagraph"><span id="UpNameAnnounce"></span></p>
+        </div>
+
+
+        <div class="boosts" id="boost_bg">
+            <h1 style="color: white;">Choose where to use antimatter</h1>
+            <div class="flex" style="gap: 50px; position: relative;" id="boost_choice">
+                <div class="boost_box" onclick="Boost(0)">
+                    <h1>Every planets</h1>
+                    <p>Give all planets a money boost:</p>
+                    <p>x<span id="global_boost_text"></span></p>
+                </div>
+                <div class="boost_box" onclick="Boost(1)">
+                    <h1>One planet</h1>
+                    <p>Give to one planet a money boost:</p>
+                    <p>x<span id="individual_boost_text"></span></p>
+                </div>
+
+            </div>
+            <div class="individual_boost_list animate__animated">
+                <div class="indi_title">
+                    <h1>Upgrade List</h1>
+                </div>
+                <div class="divider"></div>
+                <div class="indi_content">
+                    <div class="indi_box" onclick="IndividualBoostChoose(0)">
+                        <div style="display: flex; align-items: center;">
+                            <h4 style="margin: 0; font-size: 20px;">Wood</h4>
+                            <p class="lvl" style="margin: 0; margin-left: 5px;">Lv. 
+                                <span id="indi_lvl_1_text"></span></p>
+                        </div>
+                        <div class="power">
+                            <img src="./images/rise.png" alt="" 
+                            style="width: 20px;">
+                            <p>Boost:</p>
+                            <p><span id="indi_power_1_text"></span></p>
+                        </div>
+                        <div class="indi_boost_info">
+                            <p>Actual boost: <span id="indi_actual_boost_1_text"></span></p>
+                            <p>Afterward boost: <span id="indi_after_boost_1_text"></span></p>
+                        </div>
+                    </div>
+                    <div class="indi_box" onclick="IndividualBoostChoose(1)">
+                        <div style="display: flex; align-items: center;">
+                            <h4 style="margin: 0; font-size: 20px;">Stone</h4>
+                            <p class="lvl" style="margin: 0; margin-left: 5px;">Lv. 
+                                <span id="indi_lvl_2_text"></span></p>
+                        </div>
+                        <div class="power">
+                            <img src="./images/rise.png" alt="" 
+                            style="width: 20px;">
+                            <p>Boost:</p>
+                            <p><span id="indi_power_2_text"></span></p>
+                        </div>
+                        <div class="indi_boost_info">
+                            <p>Actual boost: <span id="indi_actual_boost_2_text"></span></p>
+                            <p>Afterward boost: <span id="indi_after_boost_2_text"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="BoostValid()">Valid</button>
+        </div>
 
     <header>
         <div class="planet">
         </div>
-        <a class="money" href="../prestige.html">
-            <img src="./images/money.png" alt="">
-            <h1> <span id="money_text"></span></h1>
-        </a>
+        <div class="money" id="prestige">
+            <div class="money_info"  onclick="Prestige_class_open()">
+                <img src="./images/money.png" alt="">
+                <h1> <span id="money_text"></span></h1>
+            </div>
+            <div class="prestige" id="prestige_text">
+                <div class="prestige_box">
+                    <h1 id="animation_1">Antimatter Creation</h1>
+                    <p id="animation_1">Total Antimatter:
+                        <span id="antimatter_text"></span></p>
+                    <p id="animation_2">Antimatter is the best way to 
+                        have energy thanks to its 100% efficiency and 
+                        its non pollution, without emitting radiation
+                    </p>
+                    <p id="animation_3">After creation you will get:
+                         <span id="antimatter_after_text"></span></p>
+                    <button id="animation_4" onclick="Prestige()">CREATE</button>
+                </div>
+            </div>
+        </div>
         <div class="xp_info">
             <div class="xp-bar">
                 <div class="xp" id="xp-bar"></div>
@@ -46,7 +135,7 @@ Faire effet planete chaude et alentour aussi quand hover-->
             <p class="xp_lvl">Xp level: <span id="xp_lvl_text"></span></p>
             <p class="xp_avancement"><span id="xp"></span>/ <span id="xp_required"></span></p>
         </div>
-        <p>Money per second: <span id="money_per_sec_text"></span></p>
+        <p class="moneypersecond">Money per second: <span id="money_per_sec_text"></span></p>
     </header>
     
     <main>
@@ -141,6 +230,7 @@ Faire effet planete chaude et alentour aussi quand hover-->
 <script src="save.js" type="text/javascript"></script>
 <script src="notation.js" type="text/javascript"></script>
 <script src="lvl.js" type="text/javascript"></script>
+<script src="prestige.js" type="text/javascript"></script>
 
 
 <!--All the section below is from https://github.com/VincentGarreau/particles.js
