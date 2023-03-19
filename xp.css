@@ -1,0 +1,56 @@
+.xp_info{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.xp-bar{
+    height: 10px;
+    width: 100%;
+    background-color: #1a1a1a;
+}
+.xp_lvl{
+    float: left;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: aliceblue;
+    letter-spacing: 0.5;
+}
+.xp_avancement{
+    float: right;
+    margin: 0;
+    margin-right: 15px;
+    margin-top: 6px;
+    color: aliceblue;
+    letter-spacing: 0.5;
+}
+
+.xp{
+    width: 88%;
+    height: 10px;
+    background: linear-gradient( 99.9deg, #0F0C29 21.2%, rgba(50,4,89,1) 84.8% );
+    transition: all .3s ease-in-out;
+}
+        
+
+.box_img{
+    position: absolute;
+    left: 40;
+    width: 120px;
+}
+.info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.milestone{
+    position: absolute;
+    top: 30;
+    width: 100px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #131032;
+}
