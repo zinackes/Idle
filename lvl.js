@@ -1,6 +1,7 @@
 let LvlRewards = 0.04;
 let moneybooster = 1;
 
+
 function plusxp(){
     xp++;
     Xp_display();
