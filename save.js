@@ -7,6 +7,7 @@ function saveData(){
         xp,
         maxxp,
         xp_lvl,
+        moneybooster,
     };
 
     const saveString = JSON.stringify(saveObject);
@@ -30,6 +31,7 @@ function loadData() {
       xp = saveObject.xp;
       maxxp = saveObject.maxxp;
       xp_lvl = saveObject.xp_lvl;
+      moneybooster = saveObject.moneybooster;
 
       console.log("Données chargées !");
     } else {
