@@ -1,5 +1,4 @@
-let LvlRewards = [0, 0.04,]
-
+let LvlRewards = 0.04;
 let moneybooster = 1;
 
 function plusxp(){
@@ -23,9 +22,7 @@ async function Xp_display(){
 }
 
 function Lvl_reward(){
-    let last_element = LvlRewards.slice(-1).pop() + 0.04;
-    moneybooster = LvlRewards[xp_lvl];
-    LvlRewards.push(last_element);
+    moneybooster += LvlRewards;
     console.log(LvlRewards);
-    console.log(Math.round(moneybooster));
+    console.log(moneybooster);
 }
