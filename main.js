@@ -7,16 +7,27 @@ const xp_lvl_text = document.getElementById("xp_lvl_text");
 const xp_text = document.getElementById("xp");
 const xp_required_text = document.getElementById("xp_required");
 const buymode_text = document.getElementById("buymode_text");
+const prestige_box = document.getElementById("prestige");
+const prestige_info = document.getElementById("prestige_text");
+const prestige_title = document.getElementById("animation_1");
+const prestige_desc = document.getElementById("animation_2");
+const prestige_value = document.getElementById("animation_3");
+const prestige_button = document.getElementById("animation_4");
+const money_info = document.querySelector(".money_info")
 var money = 0;
 var Tick = 1000;
 let TickUplvl = 0;
 let TickUpCost = 1000;
+let GlobalBoost = 1;
+let IndividualBoost = [1, 1, 1, 1]; //Chaque 1 correspond a 1 amelioration
 
 let mode = 0;
 
 let xp = 1;
 let maxxp= 10;
 let xp_lvl = 0;
+
+let UpNames = ["Wood", "Stone", "Sand", "Calcaire"];
 
 let UpPowers = [];
 UpPowers[0] = 1;
@@ -46,8 +57,8 @@ upCosts[3] = 5000;
 const nbUpgrades = upCosts.length;
 
 let UpCostsMulti = [];
-UpCostsMulti[0] = 1.04;
-UpCostsMulti[1] = 1.09;
+UpCostsMulti[0] = 1.01;
+UpCostsMulti[1] = 1.05;
 UpCostsMulti[2] = 1.15;
 UpCostsMulti[3] = 1.22;
 
@@ -100,7 +111,7 @@ function formatMoney(value) {
 
 function Update(){
     money_text.textContent = formatMoney(money);
-    money_per_sec_text.textContent = formatMoney(upgrades);
+    money_per_sec_text.textContent = formatMoney(money_gen);
     xp_lvl_text.textContent = xp_lvl;
     Xp_display(); 
 }
@@ -108,6 +119,52 @@ function Update(){
 
 setInterval(Update, 500); 
 setInterval(Money_Generator, Tick);
+
+async function Prestige_class_open(){
+  prestige_box.classList.toggle("active");
+  prestige_info.classList.toggle("prestige_active");
+  prestige_title.classList.toggle("animation_1");
+  prestige_desc.classList.toggle("animation_2");
+  prestige_value.classList.toggle("animation_3");
+  prestige_button.classList.toggle("animation_4");
+  money_info.setAttribute("onclick", "Prestige_class_close()");
+  antimatter_affichage = money/1;
+  antimatter_text.textContent = formatMoney(antimatter);
+  antimatter_after_text.textContent = formatMoney(antimatter_affichage);
+
+  
+  await delay(2000);
+  prestige_title.classList.toggle("animation_1");
+
+  await delay(500)
+  prestige_desc.classList.toggle("animation_2");
+  await delay(500)
+  prestige_value.classList.toggle("animation_3");
+  await delay(5000)
+  prestige_button.classList.toggle("animation_4");
+}
+
+async function Prestige_class_close(){
+  prestige_box.classList.toggle("close");
+  prestige_box.classList.toggle("active");
+  prestige_title.classList.toggle("animation_not_1");
+  prestige_desc.classList.toggle("animation_not_2");
+  prestige_value.classList.toggle("animation_not_3");
+  prestige_button.classList.toggle("animation_not_4");
+  money_info.setAttribute("onclick", "Prestige_class_open()");
+
+  await delay(500);
+  prestige_title.classList.toggle("animation_not_1");
+  prestige_desc.classList.toggle("animation_not_2");
+  prestige_value.classList.toggle("animation_not_3");
+  prestige_button.classList.toggle("animation_not_4");
+  prestige_info.classList.toggle("prestige_active");
+
+
+
+  await delay(1500);
+  prestige_box.classList.toggle("close");
+}
 
 function Argent(){
   money += 10e+100;
@@ -131,4 +188,21 @@ function Reset(){
   maxxp = 10;
   xp_lvl = 0;
   moneybooster = 1;
+}function PrestigeReset(){
+  money = 0;
+  Ups[0] = 1;
+  Ups[1] = 0;
+  Ups[2] = 0;
+  Ups[3] = 0;
+  upLvls[0] = 0;
+  upLvls[1] = 0;
+  upLvls[2] = 0;
+  upLvls[3] = 0;
+  upCosts[0] = 6;
+  upCosts[1] = 100;
+  upCosts[2] = 1000;
+  upCosts[3] = 5000;
+  xp = 0;
+  maxxp = 10;
+  xp_lvl = 0;
 }
