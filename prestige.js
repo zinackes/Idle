@@ -16,7 +16,7 @@ const individual_boost_list = document.querySelector(".individual_boost_list");
 
 
 function Prestige(){
-    antimatter_affichage = money/1;
+    antimatter_affichage = money*0.000001;
     if(antimatter_affichage >= 1){
         ChooseBoost(antimatter_affichage);
     }
@@ -25,19 +25,14 @@ function Prestige(){
 }
 
 function ChooseBoost(value){
-    const body = document.body;
-    const html = document.documentElement;
-    const body_height = Math.max(body.scrollHeight, body.offsetHeight,
-      html.clientHeight, html.scrollHeight, html.offsetHeight);
     boost_bg.classList.toggle("boost_show");
-    boost_bg.style.height = body_height;
     boost_bg.classList.toggle("boosts-animation");
 
-    globalboost_antimatter = value*0.1;
-    individualboost_antimatter = value*0.6;
+    globalboost_antimatter = value*0.000001;
+    individualboost_antimatter = value*0.001;
 
-    global_boost_text.textContent = formatMoney(globalboost_antimatter);
-    individual_boost_text.textContent = formatMoney(individualboost_antimatter);
+    global_boost_text.textContent = formatMoney(1+globalboost_antimatter);
+    individual_boost_text.textContent = formatMoney(1+individualboost_antimatter);
 }
 
 function Boost(boost){
@@ -73,7 +68,12 @@ function Boost(boost){
             BoostSelected = 2;
             break;
     }
+    if(BoostSelected ==1){
+        selectedUpgradeIndex = 0;
+    }
 }
+
+let selectedUpgradeIndex = null;
 
 async function IndividualBoostChoose(value){
     const UpNameAnnounce = document.getElementById("UpNameAnnounce");
@@ -88,35 +88,40 @@ async function IndividualBoostChoose(value){
     UpNameAnnounceParagraph.classList.toggle("animate__slideOutUp");
     UpNameAnnounce.classList.toggle("Fade");
     const indi_box = document.querySelectorAll('.indi_box');
-for (let i = 0; i < indi_box.length; i++) {
-indi_box[i].addEventListener('click', function() {
-// Supprimer la classe "indi_box_selected" de tous les "indi_box"
-for (let j = 0; j < indi_box.length; j++) {
-indi_box[j].classList.remove('indi_box_selected');
-}
-// Ajouter la classe "indi_box_selected" à l'"indi_box" sélectionné
-this.classList.add('indi_box_selected');
-});
-}
+    selectedUpgradeIndex = value;
+    for (let i = 0; i < indi_box.length; i++) {
+        indi_box[i].addEventListener('click', function() {
+            // Supprimer la classe "indi_box_selected" de tous les "indi_box"
+            for (let j = 0; j < indi_box.length; j++) {
+                indi_box[j].classList.remove('indi_box_selected');
+            }
+            // Ajouter la classe "indi_box_selected" à l'"indi_box" sélectionné
+            this.classList.add('indi_box_selected');
+            selectedUpgradeIndex = i;
+        });
+    }
 }
 
 function BoostValid(){
     boost_bg.classList.toggle("boost_show");
-    switch(BoostSelected){
-        case 1:
-            GlobalBoost += globalboost_antimatter;
-            console.log(GlobalBoost);
-            antimatter += antimatter_affichage;
-            PrestigeReset();
-            antimatter_text.textContent = formatMoney(antimatter);
-            antimatter_after_text.textContent = formatMoney(antimatter_affichage);
-            break;
-        case 2:
-            IndividualBoost += individualboost_antimatter;
-            console.log(IndividualBoost);
-            PrestigeReset();
-            antimatter_text.textContent = formatMoney(antimatter);
-            antimatter_after_text.textContent = formatMoney(antimatter_affichage);
-            break;
+    if (selectedUpgradeIndex !== null) {
+        switch(BoostSelected){
+            case 1:
+                GlobalBoost += globalboost_antimatter;
+                console.log(GlobalBoost);
+                antimatter += antimatter_affichage;
+                PrestigeReset();
+                antimatter_text.textContent = formatMoney(antimatter);
+                antimatter_after_text.textContent = formatMoney(antimatter_affichage);
+                break;
+            case 2:
+                IndividualBoost[selectedUpgradeIndex] += individualboost_antimatter;
+                console.log(IndividualBoost);
+                antimatter += antimatter_affichage;
+                PrestigeReset();
+                antimatter_text.textContent = formatMoney(antimatter);
+                antimatter_after_text.textContent = formatMoney(antimatter_affichage);
+                break;
+        }
     }
 }
