@@ -8,6 +8,11 @@ function saveData(){
         maxxp,
         xp_lvl,
         moneybooster,
+        GlobalBoost,
+        IndividualBoost,
+        antimatter,
+        antimatter_affichage,
+        milestone_number,
     };
 
     const saveString = JSON.stringify(saveObject);
@@ -32,6 +37,10 @@ function loadData() {
       maxxp = saveObject.maxxp;
       xp_lvl = saveObject.xp_lvl;
       moneybooster = saveObject.moneybooster;
+      GlobalBoost = saveObject.GlobalBoost;
+      antimatter = saveObject.antimatter;
+      antimatter_affichage = saveObject.antimatter_affichage;
+      milestone_number = saveObject.milestone_number;
 
       console.log("Données chargées !");
     } else {
