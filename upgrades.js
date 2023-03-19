@@ -2,6 +2,8 @@ let milestones = [10, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000
 , 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500,
 8000, 8500, 9000, 9500, 10000, 20000,];
 
+let milestone_number = [0,0,0,0];
+
 let milestoneRewards = [1, 2, 4, 8, 15, 25, 45, 80, 150, 300, 500, 500, 500
 , 500, 500, 500];
 
@@ -16,15 +18,8 @@ function TickUpgrade(){
     }
 }
 
-function rewardPlayerForMilestone(index) {
-    let lastUpgrades = new Array(upLvls.length).fill(0);
-    for (let i = 0; i < milestones.length; i++) {
-      if (upLvls[index] >= milestones[i] && lastUpgrades[index] < milestones[i]) {
-        xp += milestoneRewards[i];
-        lastUpgrades[index] = milestones[i];
-      }
-    }
-  }
+
+
 
 function buyUpgrades(index, buyMode) {
     let b = upCosts[index]; // prix de base de l'amélioration
@@ -53,10 +48,18 @@ function buyUpgrades(index, buyMode) {
       money -= cost; // soustraire le coût total de l'argent disponible
       upCosts[index] *= Math.pow(UpCostsMulti[index], n); // mettre à jour le coût de l'amélioration
       SetbuyMode(buyMode);
-      rewardPlayerForMilestone(index);
+      for(let i = 0; i < milestones.length; i++){
+          if(upLvls[index] >= milestones[i]){
+              milestone_number[index]++;
+              first_milestone = milestones.shift();
+              const upbox = document.getElementById(`upbox${index+1}`);
+              upbox.classList.add("shadow_" + index + "_" + milestone_number[index]);
+              console.log(milestones[i]);
+              console.log(milestone_number);
+          }
+        }
     }
 }
-
 function SetbuyMode(mode){
     for (let i = 0; i < nbUpgrades; i++){
         const upbox = document.getElementById(`upbox${i+1}`);
@@ -88,34 +91,23 @@ function SetbuyMode(mode){
         }
         cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1));
         cost_text.textContent = formatMoney(cost);
-        power_text.textContent = "+" + formatMoney((UpPowers[i]*moneybooster) * n);
-        lvl_text.textContent = formatMoney(upLvls[i]) + " (+" + n + ")";
-
-        if (money > cost && n != 0) {
-            upbox.classList.add("available");
-            upbox.classList.remove("not");
-        } else {
-              upbox.classList.remove("available");
-              upbox.classList.add("not");
-        }
+        power_text.textContent = "+" + formatMoney((UpPowers[i]*((IndividualBoost[i]*+GlobalBoost)*moneybooster)) * n);
+        lvl_text.textContent = formatMoney(upLvls[i]) + " (+" + formatMoney(n) + ")";
     }
 }
-
 
 setInterval(function() {
     if(n ==1){
         SetbuyMode(0);
     }
-    if(n ==10){
+    else if(n ==10){
         SetbuyMode(1);
     }
-    if(n ==100){
+    else if(n ==100){
         SetbuyMode(2);
-        rewardPlayerForMilestone(2);
     }
-    if(n != 1 && n != 10 && n != 100){
-        SetbuyMode(3);
-        rewardPlayerForMilestone(3);
-    }
-}, 1000)
-addEventListener("load", (SetbuyMode(0)));
+}, 1000);
+
+addEventListener("load", function(){
+    SetbuyMode(0);
+});
