@@ -5,6 +5,13 @@ body{
 button{
     font-family: 'Poppins', sans-serif;
 }
+
+:root{
+    --wood-shadow-x: var(--wood-shadow);
+
+    --wood-shadow: #B28B5C;
+}
+
 .planet{
     position: absolute;
     left: 30;
@@ -21,7 +28,8 @@ button{
     position: absolute;
     z-index: 9999999;
     color: white;
-    top: 30%;
+    font-size: 20px;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
