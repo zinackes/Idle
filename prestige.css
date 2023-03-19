@@ -57,6 +57,12 @@
 .animation_4{
     animation: Prestige_text_4 2s;
 }
+.animation_5{
+    animation: Prestige_text_5 2s;
+}
+.animation_6{
+    animation: Prestige_text_6 2s;
+}
 .animation_not_1{
     animation: Prestige_not_text_1 .5s;
 }
@@ -68,6 +74,12 @@
 }
 .animation_not_4{
     animation: Prestige_not_text_4 .5s;
+}
+.animation_not_5{
+    animation: Prestige_not_text_5 .5s;
+}
+.animation_not_6{
+    animation: Prestige_not_text_6 .5s;
 }
 
 .prestige_active{
@@ -124,6 +136,12 @@
 
 .boost_box p:nth-child(2){
     margin: 0;
+}
+#animation_5{
+    color: grey;
+    line-height: 0;
+    font-size: 14px;
+
 }
 
 
@@ -237,7 +255,47 @@
         opacity: 1;
     }
 }
-
+@keyframes Prestige_text_5{
+    0%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes Prestige_text_6{
+    0%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes Prestige_not_text_6{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes Prestige_not_text_5{
+    0%{
+        opacity: 1;
+    }
+    10%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 @keyframes Prestige_not_text_4{
     0%{
         opacity: 1;
