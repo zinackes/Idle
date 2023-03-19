@@ -76,11 +76,6 @@
     transition: all .1s;
     transform: scale(0.9);
 }
-.available{
-    box-shadow: -3px -3px 25px 1px #50C878, 3px 3px 25px 1px #50C878,
-     inset -3px -3px 25px 1px #50C878;
-    transition: all .3s ease-in-out;
-}
 
 .available:hover{
     transition: all .3s ease-in-out;
@@ -102,6 +97,8 @@
 .upbox_wood{
     top: 260;
     left: 190;
+    background-color: #291913;
+    color: #C75533;
 }
 .upbox_stone{
     top: 680;
