@@ -2,6 +2,9 @@ body{
     font-family: 'Poppins', sans-serif;
     z-index: 1;
 }
+button{
+    font-family: 'Poppins', sans-serif;
+}
 .planet{
     position: absolute;
     left: 30;
@@ -14,6 +17,34 @@ body{
     cursor: pointer;
 }
 
+.announce_msg{
+    position: absolute;
+    z-index: 9999999;
+    color: white;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.announce_msg p{
+    display: none;
+}
+
+.show_block{
+    display: block !important;
+    animation: animate__slideOutUp 1.5s;
+}
+.Fade{
+    animation: Fade 1.5s;
+}
+
+
+.flex{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
 header{
     flex-direction: column;
     justify-content: center;
@@ -24,153 +55,10 @@ main{
     width: 100%;
     height: 100vh;
 }
-.money{
-    margin-top: 20px;
-    background-color: black;
-    opacity: 0.7;
-    padding: 5px 10px;
-    color: rgb(54, 174, 74);
-    border-radius: 9px;
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-.money img{
-    width: 30px;
-}
-.money h1{
-    margin: 0;
-    font-size: 20px;
-    margin-left: 9px;
-}
-.xp_info{
-    width: 100%;
-    position: absolute;
-    top: 0;
-}
-
-.xp-bar{
-    height: 10px;
-    width: 100%;
-    background-color: #1a1a1a;
-}
-.xp_lvl{
-    float: left;
-    margin: 0;
-    margin-left: 15px;
-    margin-top: 5px;
-    color: aliceblue;
-    letter-spacing: 0.5;
-}
-.xp_avancement{
-    float: right;
-    margin: 0;
-    margin-right: 15px;
-    margin-top: 6px;
-    color: aliceblue;
-    letter-spacing: 0.5;
-}
-
-.xp{
-    width: 88%;
-    height: 10px;
-    background: linear-gradient( 99.9deg, #0F0C29 21.2%, rgba(50,4,89,1) 84.8% );
-    transition: all .3s ease-in-out;
-}
-        
-
-.box_img{
-    position: absolute;
-    left: 40;
-    width: 120px;
-}
-.info{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.milestone{
-    position: absolute;
-    top: 30;
-    width: 100px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #131032;
-}
-
-.milestone-bar{
-    
-}
-
-.info h1{
-    margin: 0;
-    letter-spacing: 0.9px;
-    line-height: 0.8;
-}
-
-.lvl{
-    margin: 0;
-    color: #50C878;
-    margin-bottom: 8px;
-}
-.price, .power{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 30px;
-}
-
-.price, .power{
-    width: 110px;
-}
-.price img{
-    width: 30px;
-    margin-right: 1px;
-}
-.cost{
-    margin-left: 10px;
-}
-
-.power img{
-    width: 27px;
-    margin-right: 7px;
-}
-
-.power p:nth-child(3){
-    margin-left: 7px;
-}
-
-.button{
+.no-display{
     display: none;
 }
 
-.button button{
-    background: #00C853;
-    font-size: 20px;
-    color: white;
-    border-radius: 9px;
-    box-shadow: 0 7px 0px #018036;
-    display: inline-block;
-    transition: all .1s;
-    position: relative;
-    padding: 17px 45px;
-    position: relative;
-    top: 0;
-    cursor: pointer;
-    margin:0 20px;
-    border: none;
-    white-space: nowrap;
-}
-.button button:active{
-    top: 3px;
-    box-shadow: 0 4px 0px #018036;
-    transition: all .1s;
-    transform: scale(0.9);
-}
 
 .buymode{
     position: absolute;
@@ -199,5 +87,29 @@ main{
     background: #494983;
     border-radius: 10px;
 }
+@-webkit-keyframes slideOutUp {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+  @keyframes slideOutUp {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+  }
 
 
