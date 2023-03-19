@@ -22,7 +22,6 @@ function rewardPlayerForMilestone(index) {
       if (upLvls[index] >= milestones[i] && lastUpgrades[index] < milestones[i]) {
         xp += milestoneRewards[i];
         lastUpgrades[index] = milestones[i];
-        console.log("test");
       }
     }
   }
@@ -50,7 +49,7 @@ function buyUpgrades(index, buyMode) {
   
     if (money >= cost) {
       upLvls[index] += n; // ajouter la quantité d'améliorations achetées
-      Ups[index] += n * UpPowers[index]; // mettre à jour la puissance des améliorations
+      Ups[index] += n * (UpPowers[index] * moneybooster); // mettre à jour la puissance des améliorations
       money -= cost; // soustraire le coût total de l'argent disponible
       upCosts[index] *= Math.pow(UpCostsMulti[index], n); // mettre à jour le coût de l'amélioration
       SetbuyMode(buyMode);
@@ -89,7 +88,7 @@ function SetbuyMode(mode){
         }
         cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1));
         cost_text.textContent = formatMoney(cost);
-        power_text.textContent = "+" + formatMoney(UpPowers[i] * n);
+        power_text.textContent = "+" + formatMoney((UpPowers[i]*moneybooster) * n);
         lvl_text.textContent = formatMoney(upLvls[i]) + " (+" + n + ")";
 
         if (money > cost && n != 0) {
