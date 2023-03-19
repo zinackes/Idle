@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="prestige.css">
     <link rel="stylesheet" href="xp.css">
     <link rel="stylesheet" href="_swashIn.scss">
+    <link rel="stylesheet" href="box_shadow.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -46,7 +47,7 @@ Coutour vert quand boost selectionné-->
 
 
         <div class="boosts" id="boost_bg">
-            <h1 style="color: white;">Choose where to use antimatter</h1>
+            <h1 style="color: white; font-size: 27px;">Choose where to use antimatter</h1>
             <div class="flex" style="gap: 50px; position: relative;" id="boost_choice">
                 <div class="boost_box" onclick="Boost(0)">
                     <h1>Every planets</h1>
@@ -116,17 +117,19 @@ Coutour vert quand boost selectionné-->
             <div class="prestige" id="prestige_text">
                 <div class="prestige_box">
                     <h1 id="animation_1">Antimatter Creation</h1>
-                    <p id="animation_1">Total Antimatter:
+                    <p id="animation_2">Total Antimatter:
                         <span id="antimatter_text"></span></p>
-                    <p id="animation_2">Antimatter is the best way to 
+                    <p id="animation_3">Antimatter is the best way to 
                         have energy thanks to its 100% efficiency and 
                         its non pollution, without emitting radiation
                     </p>
-                    <p id="animation_3">After creation you will get:
+                    <p id="animation_4">After creation you will get:
                          <span id="antimatter_after_text"></span></p>
-                    <button id="animation_4" onclick="Prestige()">CREATE</button>
+                    <p id="animation_5">(1M money = 1 antimatter)</p>
+                    <button id="animation_6" onclick="Prestige()">CREATE</button>
                 </div>
             </div>
+            <p class="moneypersecond animate__animated" id="moneypersecond"><span id="money_per_sec_text"></span>/s</p>
         </div>
         <div class="xp_info">
             <div class="xp-bar">
@@ -135,7 +138,6 @@ Coutour vert quand boost selectionné-->
             <p class="xp_lvl">Xp level: <span id="xp_lvl_text"></span></p>
             <p class="xp_avancement"><span id="xp"></span>/ <span id="xp_required"></span></p>
         </div>
-        <p class="moneypersecond">Money per second: <span id="money_per_sec_text"></span></p>
     </header>
     
     <main>
@@ -149,7 +151,7 @@ Coutour vert quand boost selectionné-->
             <span id="buymode_text"></span></button>
 
 
-        <div class="upbox upbox_wood max"  id="upbox1" onclick="buyUpgrades(0, 0)">
+        <div class="upbox upbox_wood max shadow_0_1"  id="upbox1" onclick="buyUpgrades(0, 0)">
             <div class="info">
                 <div class="milestone">
                     <div class="milestone-bar">
