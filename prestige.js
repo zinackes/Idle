@@ -17,7 +17,7 @@ const individual_boost_list = document.querySelector(".individual_boost_list");
 
 function Prestige(){
     antimatter_affichage = money*0.000001;
-    if(antimatter_affichage >= 1){
+    if(antimatter_affichage >= 0){
         ChooseBoost(antimatter_affichage);
     }
 
@@ -28,8 +28,8 @@ function ChooseBoost(value){
     boost_bg.classList.toggle("boost_show");
     boost_bg.classList.toggle("boosts-animation");
 
-    globalboost_antimatter = value*0.000001;
-    individualboost_antimatter = value*0.001;
+    globalboost_antimatter = value*0.6;
+    individualboost_antimatter = value*13;
 
     global_boost_text.textContent = formatMoney(1+globalboost_antimatter);
     individual_boost_text.textContent = formatMoney(1+individualboost_antimatter);
