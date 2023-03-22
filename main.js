@@ -16,7 +16,10 @@ const prestige_button = document.getElementById("animation_4");
 const prestige_indication = document.getElementById("animation_5");
 const prestige_button_2 = document.getElementById("animation_6");
 const moneypersec_animation = document.getElementById("moneypersecond");
-const money_info = document.querySelector(".money_info")
+const money_info = document.querySelector(".money_info");
+const milestone_bar = document.getElementById("milestone_bar");
+const milestone_xp_text = document.getElementById("milestone_xp_text");
+const milestone_maxxp_text = document.getElementById("milestone_maxxp_text");
 var money = 0;
 var Tick = 1000;
 let TickUplvl = 0;
@@ -223,6 +226,12 @@ function Reset(){
   moneybooster = 1;
   GlobalBoost=1;
   IndividualBoost = [1,1,1,1];
+  xp_milestone = 0;
+  maxxp_milestone = 0;
+  milestones = [10, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000
+    , 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500,
+    8000, 8500, 9000, 9500, 10000, 20000,];
+    maxxp_milestone_bar = 10;
 }function PrestigeReset(){
   money = 0;
   Ups[0] = 1;
