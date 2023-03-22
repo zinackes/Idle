@@ -1,15 +1,15 @@
-.shadow_0_1{
+.shadow_0_0{
     box-shadow: -3px -3px 25px 1px var(--wood-shadow), 3px 3px 25px 1px var(--wood-shadow),
      inset -3px -3px 25px 1px var(--wood-shadow);
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.shadow_0_1{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-2), 3px 3px 25px 1px var(--wood-shadow-2),
+     inset -3px -3px 25px 1px var(--wood-shadow-2);
+    transition: all .5s ease-in-out;
 }
 .shadow_0_2{
-    box-shadow: -3px -3px 25px 1px black, 3px 3px 25px 1px var(--wood-shadow),
-     inset -3px -3px 25px 1px var(--wood-shadow);
-    transition: all .3s ease-in-out;
-}
-.shadow_0_3{
     box-shadow: -3px -3px 25px 1px white, 3px 3px 25px 1px var(--wood-shadow),
      inset -3px -3px 25px 1px var(--wood-shadow);
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
 }
