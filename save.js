@@ -13,6 +13,9 @@ function saveData(){
         antimatter,
         antimatter_affichage,
         milestone_number,
+        xp_milestone,
+        maxxp_milestone,
+        maxxp_milestone_bar,
     };
 
     const saveString = JSON.stringify(saveObject);
@@ -41,6 +44,9 @@ function loadData() {
       antimatter = saveObject.antimatter;
       antimatter_affichage = saveObject.antimatter_affichage;
       milestone_number = saveObject.milestone_number;
+      xp_milestone = saveObject.xp_milestone;
+      maxxp_milestone = saveObject.maxxp_milestone;
+      maxxp_milestone_bar = saveObject.maxxp_milestone_bar;
 
       console.log("Données chargées !");
     } else {
