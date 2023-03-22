@@ -7,9 +7,8 @@ button{
 }
 
 :root{
-    --wood-shadow-x: var(--wood-shadow);
-
     --wood-shadow: #B28B5C;
+    --wood-shadow-2: #8D7B68;
 }
 
 .planet{
