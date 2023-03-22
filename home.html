@@ -151,15 +151,16 @@ Coutour vert quand boost selectionné-->
             <span id="buymode_text"></span></button>
 
 
-        <div class="upbox upbox_wood max shadow_0_1"  id="upbox1" onclick="buyUpgrades(0, 0)">
+        <div class="upbox upbox_wood max shadow_0_0"  id="upbox1" onclick="buyUpgrades(0, 0)">
             <div class="info">
+                <h1>Wood</h1>
                 <div class="milestone">
-                    <div class="milestone-bar">
+                    <div class="milestone-bar" id="milestone_bar">
 
                     </div>
                 </div>
-                <h1>Wood</h1>
-                <p class="lvl">Lv. <span id="lvl_1_text"></span></p>
+                <p class="lvl">Lv. <span id="lvl_1_text"></span> / <span id="milestone_maxxp_text"></span></p>
+                <p class="lvl_gain"><span id="lvl_1_gain"></span></p>
                 <div class="price">
                     <img src="./images/money.png" alt="">
                     <p>Price: </p>
@@ -177,6 +178,7 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Stone</h1>
                 <p class="lvl">Lv. <span id="lvl_2_text"></span></p>
+                <p class="lvl_gain"><span id="lvl_2_gain"></span></p>
                 <div class="price">
                     <img src="./images/money.png" alt="">
                     <p>Price: </p>
@@ -194,6 +196,7 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Sand</h1>
                 <p class="lvl">Lv. <span id="lvl_3_text"></span></p>
+                <p class="lvl_gain"><span id="lvl_3_gain"></span></p>
                 <div class="price">
                     <img src="./images/money.png" alt="">
                     <p>Price: </p>
@@ -211,6 +214,7 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Calcaire</h1>
                 <p class="lvl">Lv. <span id="lvl_4_text"></span></p>
+                <p class="lvl_gain"><span id="lvl_4_gain"></span></p>
                 <div class="price">
                     <img src="./images/money.png" alt="">
                     <p>Price: </p>
