@@ -1,14 +1,19 @@
 let milestones = [10, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000
 , 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500,
-8000, 8500, 9000, 9500, 10000, 20000,];
+8000, 8500, 9000, 9500, 10000, 20000, 30000, 40000, 50000];
 
 let milestone_number = [0,0,0,0];
 
 let milestoneRewards = [1, 2, 4, 8, 15, 25, 45, 80, 150, 300, 500, 500, 500
-, 500, 500, 500];
+, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500
+, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500];
 
 
 let cost = 0;
+let xp_milestone = 0;
+let maxxp_milestone = 0;
+let maxxp_milestone_bar = 10;
 
 
 function TickUpgrade(){
@@ -42,22 +47,35 @@ function buyUpgrades(index, buyMode) {
     }
     cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1)); // coût total pour acheter la quantité d'améliorations calculée
   
+    console.log("Cost:" + cost);
+    console.log("Money" + money);
+    console.log("upCosts:" + b);
+    console.log("upCostsMulti:" + r);
+    console.log("UpLvl:" + k);
+    console.log("N:" + n);
+    console.log("--------------------------");
     if (money >= cost) {
       upLvls[index] += n; // ajouter la quantité d'améliorations achetées
       Ups[index] += n * (UpPowers[index] * moneybooster); // mettre à jour la puissance des améliorations
       money -= cost; // soustraire le coût total de l'argent disponible
-      upCosts[index] *= Math.pow(UpCostsMulti[index], n); // mettre à jour le coût de l'amélioration
       SetbuyMode(buyMode);
+      console.log("Cost apres achat:" + cost);
+      console.log("UpCosts apres achat: " + upCosts[index]);
+      console.log("Money apres achat" + money);
+      xp_milestone+= n;
       for(let i = 0; i < milestones.length; i++){
-          if(upLvls[index] >= milestones[i]){
-              milestone_number[index]++;
-              first_milestone = milestones.shift();
+          if(upLvls[index] >= milestones[milestone_number[index]]){
+              milestone_number[index]++; //Nombre du milestone ++
+              xp_milestone -= maxxp_milestone_bar; //Xp du milestone - l'xp max de la bar de progression
+              maxxp_milestone_bar = milestones[milestone_number[index]]-milestones[milestone_number[index]-1];
+              maxxp_milestone = milestones[milestone_number[index]];
               const upbox = document.getElementById(`upbox${index+1}`);
               upbox.classList.add("shadow_" + index + "_" + milestone_number[index]);
-              console.log(milestones[i]);
-              console.log(milestone_number);
-          }
+            }
         }
+        milestone_bar.style.width = ((xp_milestone/maxxp_milestone_bar)*100) + "%";
+        milestone_maxxp_text.textContent = maxxp_milestone;
+        XpMilestone(index, i);
     }
 }
 function SetbuyMode(mode){
@@ -66,6 +84,7 @@ function SetbuyMode(mode){
         const cost_text = document.getElementById(`cost_${i+1}_text`);
         const power_text = document.getElementById(`power_${i+1}_text`);
         const lvl_text = document.getElementById(`lvl_${i+1}_text`);
+        const lvl_gain_text = document.getElementById(`lvl_${i+1}_gain`);
         index = i;
         let b = upCosts[index]; // prix de base de l'amélioration
         let r = UpCostsMulti[index]; // augmentation de prix à chaque achat
@@ -92,13 +111,18 @@ function SetbuyMode(mode){
         cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1));
         cost_text.textContent = formatMoney(cost);
         power_text.textContent = "+" + formatMoney((UpPowers[i]*((IndividualBoost[i]*+GlobalBoost)*moneybooster)) * n);
-        lvl_text.textContent = formatMoney(upLvls[i]) + " (+" + formatMoney(n) + ")";
+        lvl_text.textContent = formatMoney(upLvls[i]);
+        lvl_gain_text.textContent = "(+" + formatMoney(n) + ")";
     }
+}
+
+function XpMilestone(index, i){
 }
 
 setInterval(function() {
     if(n ==1){
         SetbuyMode(0);
+        console.log();
     }
     else if(n ==10){
         SetbuyMode(1);
@@ -110,4 +134,6 @@ setInterval(function() {
 
 addEventListener("load", function(){
     SetbuyMode(0);
+    XpMilestone(index, i);
+    milestone_bar.style.width = ((xp_milestone/maxxp_milestone)*100) + "%";
 });
