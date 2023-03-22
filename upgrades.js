@@ -46,22 +46,12 @@ function buyUpgrades(index, buyMode) {
         n = Math.floor(Math.log(c * (r - 1) / (b * Math.pow(r, k)) + 1) / Math.log(r)); // quantité maximale d'améliorations pouvant être achetées avec l'argent disponible
     }
     cost = b * (Math.pow(r, k) * (Math.pow(r, n) - 1) / (r - 1)); // coût total pour acheter la quantité d'améliorations calculée
-  
-    console.log("Cost:" + cost);
-    console.log("Money" + money);
-    console.log("upCosts:" + b);
-    console.log("upCostsMulti:" + r);
-    console.log("UpLvl:" + k);
-    console.log("N:" + n);
-    console.log("--------------------------");
+
     if (money >= cost) {
       upLvls[index] += n; // ajouter la quantité d'améliorations achetées
       Ups[index] += n * (UpPowers[index] * moneybooster); // mettre à jour la puissance des améliorations
       money -= cost; // soustraire le coût total de l'argent disponible
       SetbuyMode(buyMode);
-      console.log("Cost apres achat:" + cost);
-      console.log("UpCosts apres achat: " + upCosts[index]);
-      console.log("Money apres achat" + money);
       xp_milestone+= n;
       for(let i = 0; i < milestones.length; i++){
           if(upLvls[index] >= milestones[milestone_number[index]]){
@@ -70,10 +60,15 @@ function buyUpgrades(index, buyMode) {
               maxxp_milestone_bar = milestones[milestone_number[index]]-milestones[milestone_number[index]-1];
               maxxp_milestone = milestones[milestone_number[index]];
               const upbox = document.getElementById(`upbox${index+1}`);
+              milestoneRewards[milestone_number[index]]
+              console.log(milestoneRewards[milestone_number[index]]);
               upbox.classList.add("shadow_" + index + "_" + milestone_number[index]);
             }
         }
         milestone_bar.style.width = ((xp_milestone/maxxp_milestone_bar)*100) + "%";
+        if(maxxp_milestone == 0){
+            maxxp_milestone =10;
+        }
         milestone_maxxp_text.textContent = maxxp_milestone;
         XpMilestone(index, i);
     }
@@ -135,5 +130,9 @@ setInterval(function() {
 addEventListener("load", function(){
     SetbuyMode(0);
     XpMilestone(index, i);
+    milestone_maxxp_text.textContent = maxxp_milestone;
+    if(maxxp_milestone == 0){
+        maxxp_milestone =10;
+      }
     milestone_bar.style.width = ((xp_milestone/maxxp_milestone)*100) + "%";
 });
