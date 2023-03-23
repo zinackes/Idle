@@ -11,9 +11,9 @@ let milestoneRewards = [1, 2, 4, 8, 15, 25, 45, 80, 150, 300, 500, 500, 500
 
 
 let cost = 0;
-let xp_milestone = 0;
-let maxxp_milestone = 0;
-let maxxp_milestone_bar = 10;
+let xp_milestone = [0,0,0,0];
+let maxxp_milestone = [0,0,0,0];
+let maxxp_milestone_bar = [10,10,10,10];
 
 
 function TickUpgrade(){
@@ -52,24 +52,29 @@ function buyUpgrades(index, buyMode) {
       Ups[index] += n * (UpPowers[index] * moneybooster); // mettre à jour la puissance des améliorations
       money -= cost; // soustraire le coût total de l'argent disponible
       SetbuyMode(buyMode);
-      xp_milestone+= n;
+      xp_milestone[index]+= n;
       for(let i = 0; i < milestones.length; i++){
           if(upLvls[index] >= milestones[milestone_number[index]]){
               milestone_number[index]++; //Nombre du milestone ++
-              xp_milestone -= maxxp_milestone_bar; //Xp du milestone - l'xp max de la bar de progression
-              maxxp_milestone_bar = milestones[milestone_number[index]]-milestones[milestone_number[index]-1];
-              maxxp_milestone = milestones[milestone_number[index]];
+              xp_milestone[index] -= maxxp_milestone_bar[index]; //Xp du milestone - l'xp max de la bar de progression
+              maxxp_milestone_bar[index] = milestones[milestone_number[index]]-milestones[milestone_number[index]-1];
+              maxxp_milestone[index] = milestones[milestone_number[index]];
               const upbox = document.getElementById(`upbox${index+1}`);
               milestoneRewards[milestone_number[index]]
               console.log(milestoneRewards[milestone_number[index]]);
               upbox.classList.add("shadow_" + index + "_" + milestone_number[index]);
             }
         }
-        milestone_bar.style.width = ((xp_milestone/maxxp_milestone_bar)*100) + "%";
-        if(maxxp_milestone == 0){
-            maxxp_milestone =10;
+        const milestone_bar = document.getElementById(`milestone_bar_${index+1}`);
+        const milestone_maxxp_text = document.getElementById(`milestone_maxxp_text_${index+1}`);
+        milestone_bar.style.width = ((xp_milestone[index]/maxxp_milestone_bar[index])*100) + "%";
+        milestone_maxxp_text.textContent = maxxp_milestone[index];
+        if(maxxp_milestone[index] == 0){
+            maxxp_milestone[index] = 10;
         }
-        milestone_maxxp_text.textContent = maxxp_milestone;
+        console.log(xp_milestone[index]);
+        console.log(maxxp_milestone[index]);
+        console.log(maxxp_milestone_bar[index]);
         XpMilestone(index, i);
     }
 }
@@ -130,7 +135,7 @@ setInterval(function() {
 addEventListener("load", function(){
     SetbuyMode(0);
     XpMilestone(index, i);
-    milestone_maxxp_text.textContent = maxxp_milestone;
+    milestone_maxxp_text.textContent = maxxp_milestone[index];
     if(maxxp_milestone == 0){
         maxxp_milestone =10;
       }
