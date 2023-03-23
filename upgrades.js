@@ -72,9 +72,6 @@ function buyUpgrades(index, buyMode) {
         if(maxxp_milestone[index] == 0){
             maxxp_milestone[index] = 10;
         }
-        console.log(xp_milestone[index]);
-        console.log(maxxp_milestone[index]);
-        console.log(maxxp_milestone_bar[index]);
         XpMilestone(index, i);
     }
 }
@@ -135,9 +132,14 @@ setInterval(function() {
 addEventListener("load", function(){
     SetbuyMode(0);
     XpMilestone(index, i);
-    milestone_maxxp_text.textContent = maxxp_milestone[index];
-    if(maxxp_milestone == 0){
-        maxxp_milestone =10;
-      }
-    milestone_bar.style.width = ((xp_milestone/maxxp_milestone)*100) + "%";
+    for(let i = 0; i < nbUpgrades; i++){
+        const milestone_bar = document.getElementById(`milestone_bar_${i+1}`);
+        const milestone_maxxp_text = document.getElementById(`milestone_maxxp_text_${i+1}`);
+        milestone_maxxp_text.textContent = maxxp_milestone[i];
+        milestone_bar.style.width = ((xp_milestone[i]/maxxp_milestone[i])*100) + "%";
+        if(maxxp_milestone[i] == 0){
+            maxxp_milestone[i] =10;
+          }
+
+    }
 });
