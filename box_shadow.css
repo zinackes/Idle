@@ -9,7 +9,55 @@
     transition: all .5s ease-in-out;
 }
 .shadow_0_2{
-    box-shadow: -3px -3px 25px 1px white, 3px 3px 25px 1px var(--wood-shadow),
-     inset -3px -3px 25px 1px var(--wood-shadow);
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-3), 3px 3px 25px 1px var(--wood-shadow-3),
+     inset -3px -3px 25px 1px var(--wood-shadow-3);
+    transition: all .5s ease-in-out;
+}
+.upbox_0_2{
+    background-color: #B86F4E;
+}
+.shadow_0_3{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-4), 3px 3px 25px 1px var(--wood-shadow-4),
+     inset -3px -3px 25px 1px var(--wood-shadow-4);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_4{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-5), 3px 3px 25px 1px var(--wood-shadow-5),
+     inset -3px -3px 25px 1px var(--wood-shadow-5);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_5{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-6), 3px 3px 25px 1px var(--wood-shadow-6),
+     inset -3px -3px 25px 1px var(--wood-shadow-6);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_6{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-7), 3px 3px 25px 1px var(--wood-shadow-7),
+     inset -3px -3px 25px 1px var(--wood-shadow-7);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_7{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-8), 3px 3px 25px 1px var(--wood-shadow-8),
+     inset -3px -3px 25px 1px var(--wood-shadow-8);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_8{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-9), 3px 3px 25px 1px var(--wood-shadow-9),
+     inset -3px -3px 25px 1px var(--wood-shadow-9);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_9{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-10), 3px 3px 25px 1px var(--wood-shadow-10),
+     inset -3px -3px 25px 1px var(--wood-shadow-10);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_10{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-11), 3px 3px 25px 1px var(--wood-shadow-11),
+     inset -3px -3px 25px 1px var(--wood-shadow-11);
+    transition: all .5s ease-in-out;
+}
+.shadow_0_11{
+    box-shadow: -3px -3px 25px 1px var(--wood-shadow-12), 3px 3px 25px 1px var(--wood-shadow-12),
+     inset -3px -3px 25px 1px var(--wood-shadow-12);
     transition: all .5s ease-in-out;
 }
