@@ -8,7 +8,19 @@ button{
 
 :root{
     --wood-shadow: #B28B5C;
-    --wood-shadow-2: #8D7B68;
+    --wood-shadow-2: #B86F4E;
+    --wood-shadow-3: #C04C37;
+    --wood-shadow-4: #CC2E25;
+    --wood-shadow-5: #FFA500;
+    --wood-shadow-6: #FFD700;
+    --wood-shadow-7: #FFFFE0;
+    --wood-shadow-8: #FFFFFF;
+    --wood-shadow-9: #ADD8E6;
+    --wood-shadow-10: #87CEEB;
+    --wood-shadow-11: #6495ED;
+    --wood-shadow-12: #4169E1;
+
+    --bg-milestone-bar: #976e3b;
 }
 
 .planet{
