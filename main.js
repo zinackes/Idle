@@ -17,6 +17,7 @@ const prestige_indication = document.getElementById("animation_5");
 const prestige_button_2 = document.getElementById("animation_6");
 const moneypersec_animation = document.getElementById("moneypersecond");
 const money_info = document.querySelector(".money_info");
+const UpgradesBox = document.querySelectorAll(".upbox");
 var money = 0;
 var Tick = 1000;
 let TickUplvl = 0;
@@ -70,30 +71,16 @@ var money_gen_indi = [0, 0, 0, 0];
 let i = 0;
 
 
-function delay(milliseconds){
+function delay(milliseconds){ //Function utiliser pour "await" delay(temps en milliseconds)
   return new Promise(resolve => {
       setTimeout(resolve, milliseconds);
   });
 }
 
-function SwitchBuyMode(){
-  mode++;
-  if(mode >=4){
-    mode=0;
-  }
-  SetbuyMode(mode);
-  if(n != 1 && n != 10 && n != 100){
-    buymode_text.textContent = "Max";
-  }
-  else{
-    buymode_text.textContent = "x" + n;
-  }
-}
-
 
 buymode_text.textContent = "x" + 1;
 
-function Money_Generator_Individual(){
+function Money_Generator_Individual(){ //Generation d'argent toutes les secondes.
   for(let i = 0;i< IndividualBoost.length;i++){
     money_gen_indi[i] = Ups[i]*((IndividualBoost[i]*+GlobalBoost)*moneybooster);
     money+= money_gen_indi[i];
@@ -104,18 +91,21 @@ function Money_Generator_Individual(){
 
 
 
-function formatMoney(value) {
+function formatMoney(value) { //Format de l'argent affiché
   for (let i = moneyNotations.length - 1; i >= 0; i--) {
       const divider = Math.pow(10, (i * 3));
       if (value >= divider) {
           return (value / divider).toFixed(2) + moneyNotations[i];
       }
   }
+  if(value < 1){
+    return value.toFixed(2);
+  }
   return value.toString();
 }
 
+
 function Update(){
-    money_text.textContent = formatMoney(money);
     for(let i = 0;i< money_gen_indi.length;i++){
       money_per_sec = money_gen_indi.reduce((accumulator, currentValue) => accumulator + currentValue);
       money_per_sec_text.textContent = formatMoney(money_per_sec);
@@ -124,7 +114,11 @@ function Update(){
     Xp_display();
 }
 
+function Test(){
+  money_text.textContent = formatMoney(money);
+}
 
+setInterval(Test, 500);
 setInterval(Update, 500); 
 setInterval(Money_Generator_Individual, 1000);
 
