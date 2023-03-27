@@ -55,11 +55,17 @@ function Boost(boost){
                 getElementById(`indi_actual_boost_${i+1}_text`);
                 const indi_after_boost_text = document.
                 getElementById(`indi_after_boost_${i+1}_text`);
+                const indi_after_power_text = document.
+                getElementById(`indi_after_power_${i+1}_text`);
                 let after_boost = IndividualBoost[i] + individualboost_antimatter;
                 indi_power_text.textContent = "+" + formatMoney(UpPowers[i] * n);
                 indi_lvl_text.textContent = formatMoney(upLvls[i]);
                 indi_actual_boost_text.textContent = "x" + formatMoney(IndividualBoost[i]);
                 indi_after_boost_text.textContent = "x" + formatMoney(after_boost);
+                let indi_after_boost = (UpPowers[i] * after_boost) - UpPowers[i];
+                indi_after_power_text.textContent = formatMoney(indi_after_boost);
+                console.log(formatMoney(indi_after_boost));
+                console.log(indi_after_boost);
 
             }
             boost_box[1].classList.toggle("boost_box_selected");
