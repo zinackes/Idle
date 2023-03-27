@@ -45,6 +45,9 @@
 .prestige_box button:hover{
     background-color: #a00be0;
 }
+#animation_4{
+    color: #87ceeb;
+}
 .animation_1{
     animation: Prestige_text_1 2s;
 }
