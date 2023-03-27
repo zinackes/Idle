@@ -1,4 +1,3 @@
-let LvlRewards = 0.04;
 let moneybooster = 1;
 
 
@@ -23,7 +22,6 @@ async function Xp_display(){
 }
 
 function Lvl_reward(){
-    moneybooster += LvlRewards;
-    console.log(LvlRewards);
+    moneybooster += 0.04;
     console.log(moneybooster);
 }
