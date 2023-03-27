@@ -16,30 +16,29 @@
     />
     <link rel="stylesheet" href="planet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/9738b737cc.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Space Idle</title>
 </head>
 <body>
     <div id="particles-js"></div>
     <!-- Faire arbre de developpement avec truc un peu en rond
     et des lignes qui relie
-Faire un systeme de niveau global qui se reset jamais (trouver moyen
-d'xp) :: gain xp: tt les 10, 25 etc niveaux de chaque amelio : donner xp,
-xp gagné different en fonction de l'amelioration exemple:
-wood niv 10= 1xp, stone niv 10=2. 
 faire acheteur auto
-Systeme de prestige ?
+
+pour couleur de chaque planete:
+faire sorte de explosion apres fin de changement de couleurs
+
+Prestige boost indi :Faire un systeme de choix entre aleatoire (donc    plus de boost) ou alors
+ on choisi l’amelioration
+
+ faire une liste d'info
+
+
 
     Upgrade: sable, calcaire, fer, charbon, cuivre, or, zinc, argent, 
-silice titane, plomb quartz, aluminium
-
-pour design buyMode:
-faire une sorte de planete avec texte dedans qui indique changement de
-mode et le mode puis quand on clique dessus alors 4 planetes apparaissent autour
-avec chacun 1 mode different
-
-Coutour vert quand boost selectionné-->
+silice titane, plomb quartz, aluminium-->
 
         <div class="announce_msg">
             <p class="" id="UpNameAnnounceParagraph"><span id="UpNameAnnounce"></span></p>
@@ -63,7 +62,7 @@ Coutour vert quand boost selectionné-->
             </div>
             <div class="individual_boost_list animate__animated">
                 <div class="indi_title">
-                    <h1>Upgrade List</h1>
+                    <h1>Choose the upgrade</h1>
                 </div>
                 <div class="divider"></div>
                 <div class="indi_content">
@@ -74,14 +73,12 @@ Coutour vert quand boost selectionné-->
                                 <span id="indi_lvl_1_text"></span></p>
                         </div>
                         <div class="power">
-                            <img src="./images/rise.png" alt="" 
-                            style="width: 20px;">
                             <p>Boost:</p>
-                            <p><span id="indi_power_1_text"></span></p>
+                            <p><span id="indi_power_1_text"></span> (+ <span id="indi_after_power_1_text"></span> )</p>
                         </div>
                         <div class="indi_boost_info">
-                            <p>Actual boost: <span id="indi_actual_boost_1_text"></span></p>
-                            <p>Afterward boost: <span id="indi_after_boost_1_text"></span></p>
+                            <p>Multiplier: <span id="indi_actual_boost_1_text"></span>
+                                 (+ <span id="indi_after_boost_1_text"></span> )</p>
                         </div>
                     </div>
                     <div class="indi_box" onclick="IndividualBoostChoose(1)">
@@ -94,11 +91,12 @@ Coutour vert quand boost selectionné-->
                             <img src="./images/rise.png" alt="" 
                             style="width: 20px;">
                             <p>Boost:</p>
-                            <p><span id="indi_power_2_text"></span></p>
+                            <p><span id="indi_power_2_text"></span>
+                                 (+ <span id="indi_after_power_2_text"></span> )</p>
                         </div>
                         <div class="indi_boost_info">
-                            <p>Actual boost: <span id="indi_actual_boost_2_text"></span></p>
-                            <p>Afterward boost: <span id="indi_after_boost_2_text"></span></p>
+                            <p>Multiplier: <span id="indi_actual_boost_2_text"></span> 
+                                (+ <span id="indi_after_boost_2_text"></span> )</p>
                         </div>
                     </div>
                 </div>
@@ -152,22 +150,20 @@ Coutour vert quand boost selectionné-->
 
 
         <div class="upbox upbox_wood max shadow_0_0"  id="upbox1" onclick="buyUpgrades(0, 0)">
+            <i class="fa-solid fa-star"></i>
             <div class="info">
                 <h1>Wood</h1>
                 <div class="milestone">
-                    <div class="milestone-bar" id="milestone_bar_1">
-
-                    </div>
+                    <div class="milestone-bar" id="milestone_bar_1"></div>
+                    <div class="milestone-bar-prediction" id="milestone_bar_prediction_1"></div>
                 </div>
                 <p class="lvl">Lv. <span id="lvl_1_text"></span> / <span id="milestone_maxxp_text_1"></span></p>
                 <p class="lvl_gain"><span id="lvl_1_gain"></span></p>
                 <div class="price">
-                    <img src="./images/money.png" alt="">
                     <p>Price: </p>
                     <p class="cost"><span id="cost_1_text"> </span></p>
                 </div>
                 <div class="power">
-                    <img src="./images/rise.png" alt="">
                     <p>Boost:</p>
                     <p><span id="power_1_text"></span></p>
                 </div>
@@ -178,9 +174,8 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Stone</h1>
                 <div class="milestone">
-                    <div class="milestone-bar" id="milestone_bar_2">
-
-                    </div>
+                    <div class="milestone-bar" id="milestone_bar_2"></div>
+                    <div class="milestone-bar-prediction" id="milestone_bar_prediction_2"></div>
                 </div>
                 <p class="lvl">Lv. <span id="lvl_2_text"></span> / <span id="milestone_maxxp_text_2"></span></p>
                 <p class="lvl_gain"><span id="lvl_2_gain"></span></p>
@@ -201,9 +196,8 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Sand</h1>
                 <div class="milestone">
-                    <div class="milestone-bar" id="milestone_bar_3">
-
-                    </div>
+                    <div class="milestone-bar" id="milestone_bar_3"></div>
+                    <div class="milestone-bar-prediction" id="milestone_bar_prediction_3"></div>
                 </div>
                 <p class="lvl">Lv. <span id="lvl_3_text"></span> / <span id="milestone_maxxp_text_3"></span></p>
                 <p class="lvl_gain"><span id="lvl_3_gain"></span></p>
@@ -224,9 +218,8 @@ Coutour vert quand boost selectionné-->
             <div class="info">
                 <h1>Calcaire</h1>
                 <div class="milestone">
-                    <div class="milestone-bar" id="milestone_bar_4">
-
-                    </div>
+                    <div class="milestone-bar" id="milestone_bar_4"></div>
+                    <div class="milestone-bar-prediction" id="milestone_bar_prediction_4"></div>
                 </div>
                 <p class="lvl">Lv. <span id="lvl_4_text"></span> / <span id="milestone_maxxp_text_4"></span></p>
                 <p class="lvl_gain"><span id="lvl_4_gain"></span></p>
