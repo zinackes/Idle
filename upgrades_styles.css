@@ -1,6 +1,6 @@
 .upbox{
     position: absolute;
-    padding: 45px;
+    padding: 47px;
     display: flex;
     background-color: #1c1c37;
     align-items: center;
@@ -11,6 +11,17 @@
     transition: all .3s ease-in-out;
     cursor: pointer;
     aspect-ratio: 1;
+}
+.fa-star{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: -webkit-radial-gradient(33% 100% circle, #515ECF 4%, #9B36B7 30%, #D92E7F 62%, #F15245 85%, #FED373);
+	background: radial-gradient(circle at 33%, #734a07, #c98910 30%, #d4b96f 60%, #a58f6d 70%, #7c573d);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    animation: StarAnimation 3s;
 }
 .info h1{
     margin: 0;
@@ -110,13 +121,24 @@
     margin-top: 4px;
     height: 5px;
     border-radius: 10px;
-    background-color: #131032;
+    background-color: var(--bg-milestone-bar);
+    border: .5px solid black;
+    position: relative;
 }
 .milestone-bar{
     background-color: white;
     height: 5px;
     border-radius: 10px;
     transition: all .3s ease-in-out;
+}
+.milestone-bar-prediction{
+    background-color: white;
+    opacity: 0.4;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    top: 0;
 }
 .milestone_xp{
     font-size: 12px;
@@ -127,7 +149,7 @@
 .upbox_wood{
     top: 260;
     left: 190;
-    background-color: #291913;
+    background-color: #2e1c16;
     color: #C75533;
 }
 .upbox_stone{
@@ -146,8 +168,24 @@
     font-size: 25px;
 }
 
-
-
+@keyframes StarAnimation{
+    0%{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100%{
+        position: absolute;
+        top: 11.5%;
+        left: 45.5%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
 
 
 
